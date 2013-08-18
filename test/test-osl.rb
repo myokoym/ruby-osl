@@ -1,4 +1,4 @@
-class OSLTest < Test::Unit::TestCase
+class OslTest < Test::Unit::TestCase
   def test_require_osl
     assert_nothing_raised do
       require "osl"

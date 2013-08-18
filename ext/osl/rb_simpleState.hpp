@@ -41,10 +41,10 @@ wrap_SimpleState_show(VALUE self)
 extern "C" {
 #endif
 void
-Init_simpleState(void)
+Init_simpleState(VALUE mOsl)
 {
   VALUE c;
-  c = rb_define_class("SimpleState", rb_cObject);
+  c = rb_define_class_under(mOsl, "SimpleState", rb_cObject);
   rb_define_alloc_func(c, wrap_SimpleState_allocate);
   rb_define_private_method(c, "initialize", (VALUE(*)(...))wrap_SimpleState_initialize, 0);
   rb_define_method(c, "show", (VALUE(*)(...))wrap_SimpleState_show, 0);
