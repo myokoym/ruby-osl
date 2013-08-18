@@ -8,7 +8,7 @@ Ruby/OSL is a Ruby binding of OpenShogiLib.
 
 ## Installation
 
-Add requirements library headers:
+Add required libraries:
 
   * Debian GNU/Linux, Ubuntu
 
