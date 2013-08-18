@@ -2,7 +2,17 @@
 
 Ruby/OSL is a Ruby binding of OpenShogiLib.
 
+## Requirements
+
+  * OpenShogiLib
+
 ## Installation
+
+Add requirements library headers:
+
+  * Debian GNU/Linux, Ubuntu
+
+        sudo apt-get install libosl-dev
 
 Add this line to your application's Gemfile:
 
