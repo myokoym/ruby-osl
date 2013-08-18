@@ -1,13 +1,33 @@
-# Compiled Object files
+# C++
+## Compiled Object files
 *.slo
 *.lo
 *.o
 
-# Compiled Dynamic libraries
+## Compiled Dynamic libraries
 *.so
 *.dylib
 
-# Compiled Static libraries
+## Compiled Static libraries
 *.lai
 *.la
 *.a
+
+# RubyGems
+*.gem
+*.rbc
+.bundle
+.config
+.yardoc
+Gemfile.lock
+InstalledFiles
+_yardoc
+coverage
+doc/
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
