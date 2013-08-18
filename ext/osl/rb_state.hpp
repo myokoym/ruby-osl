@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include "rb_simpleState.hpp"
+#include "rb_state_simpleState.hpp"
 
 #ifdef __cplusplus
 extern "C" {
