@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include <osl/state/simpleState.h>
+#include <osl/state/numEffectState.h>
 #include <osl/handicap.h>
 #include <iostream>
 
@@ -41,7 +41,7 @@ wrap_SimpleState_show(VALUE self)
 extern "C" {
 #endif
 void
-Init_osl(void)
+Init_simpleState(void)
 {
   VALUE c;
   c = rb_define_class("SimpleState", rb_cObject);
