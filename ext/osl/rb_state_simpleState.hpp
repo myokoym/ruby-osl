@@ -15,16 +15,16 @@ rb_SimpleState_free(state::SimpleState* ptr)
 static VALUE
 rb_SimpleState_s_new(VALUE self)
 {
-  state::SimpleState* p = new state::SimpleState(HIRATE);
-  return Data_Wrap_Struct(self, NULL, rb_SimpleState_free, p);
+  state::SimpleState* ptr = new state::SimpleState(HIRATE);
+  return Data_Wrap_Struct(self, NULL, rb_SimpleState_free, ptr);
 }
 
 static VALUE
 rb_SimpleState_show(VALUE self)
 {
-  state::SimpleState* p;
-  Data_Get_Struct(self, state::SimpleState, p);
-  std::cout << *p << std::endl;
+  state::SimpleState* ptr;
+  Data_Get_Struct(self, state::SimpleState, ptr);
+  std::cout << *ptr << std::endl;
   return Qnil;
 }
 
