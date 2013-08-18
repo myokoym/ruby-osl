@@ -1,8 +1,6 @@
 #include "ruby.h"
 #include "rb_simpleState.hpp"
 
-using namespace osl;
-
 #ifdef __cplusplus
 extern "C" {
 #endif
