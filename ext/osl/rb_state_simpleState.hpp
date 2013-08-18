@@ -46,8 +46,8 @@ Init_simpleState(VALUE mState)
   VALUE cSimpleState;
   cSimpleState = rb_define_class_under(mState, "SimpleState", rb_cObject);
   rb_define_alloc_func(cSimpleState, rb_SimpleState_allocate);
-  rb_define_private_method(cSimpleState, "initialize", (VALUE(*)(...))rb_SimpleState_initialize, 0);
-  rb_define_method(cSimpleState, "show", (VALUE(*)(...))rb_SimpleState_show, 0);
+  rb_define_private_method(cSimpleState, "initialize", RUBY_METHOD_FUNC(rb_SimpleState_initialize), 0);
+  rb_define_method(cSimpleState, "show", RUBY_METHOD_FUNC(rb_SimpleState_show), 0);
 }
 #ifdef __cplusplus
 } /* extern "C" */
