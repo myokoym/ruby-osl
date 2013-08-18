@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include "rb_simpleState.hpp"
+#include "rb_state.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -9,7 +9,7 @@ Init_osl(void)
 {
   static VALUE mOsl;
   mOsl = rb_define_module("Osl");
-  Init_simpleState(mOsl);
+  Init_state(mOsl);
 }
 #ifdef __cplusplus
 } /* extern "C" */

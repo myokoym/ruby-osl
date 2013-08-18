@@ -13,6 +13,9 @@
 *.la
 *.a
 
+## Make
+Makefile
+
 # RubyGems
 *.gem
 *.rbc
