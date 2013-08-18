@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include <osl/state/numEffectState.h>
+#include <osl/state/simpleState.h>
 #include <osl/handicap.h>
 #include <iostream>
 
