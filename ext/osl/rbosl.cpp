@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include "rb_state.hpp"
+#include "rbosl_state.hpp"
 
 #ifdef __cplusplus
 extern "C" {
