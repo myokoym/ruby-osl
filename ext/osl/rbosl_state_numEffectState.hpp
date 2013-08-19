@@ -50,6 +50,21 @@ rb_numEffectState_generate(VALUE self)
   return moves_ary;
 }
 
+static VALUE
+rb_numEffectState_makeMove(VALUE self, VALUE rb_move)
+{
+  state::NumEffectState* p;
+  Data_Get_Struct(self, state::NumEffectState, p);
+
+  Move* c_move;
+  Data_Get_Struct(rb_move, Move, c_move);
+
+  p->makeMove(*c_move);
+
+  return Qnil;
+}
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -61,6 +76,7 @@ Init_numEffectState(VALUE mState)
   rb_define_singleton_method(cNumEffectState, "new", RUBY_METHOD_FUNC(rb_numEffectState_s_new), 0);
   rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rb_numEffectState_show), 0);
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rb_numEffectState_generate), 0);
+  rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rb_numEffectState_makeMove), 1);
 }
 #ifdef __cplusplus
 } /* extern "C" */

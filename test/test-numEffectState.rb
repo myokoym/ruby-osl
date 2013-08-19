@@ -12,4 +12,12 @@ class NumEffectStateTest < Test::Unit::TestCase
     assert_true(moves.is_a?(Array))
     assert_true(moves.first.is_a?(Osl::Move))
   end
+
+  def test_makeMove
+    nstate = Osl::State::NumEffectState.new
+    moves = nstate.generate
+    assert_nothing_raised do
+      nstate.makeMove(moves.first)
+    end
+  end
 end
