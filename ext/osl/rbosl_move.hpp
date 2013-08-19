@@ -1,6 +1,8 @@
 #include "ruby.h"
 #include <osl/move.h>
 
+VALUE cMove;
+
 using namespace osl;
 
 void
@@ -23,7 +25,6 @@ extern "C" {
 void
 Init_move(VALUE mOsl)
 {
-  VALUE cMove;
   cMove = rb_define_class_under(mOsl, "Move", rb_cObject);
   rb_define_singleton_method(cMove, "new", RUBY_METHOD_FUNC(rb_move_s_new), 0);
 }
