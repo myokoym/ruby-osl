@@ -8,6 +8,12 @@ extern  VALUE cMove;
 
 using namespace osl;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 extern void Init_move(VALUE mOsl);
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif /* RBOSL_MOVE_H */
