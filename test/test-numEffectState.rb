@@ -23,4 +23,10 @@ class NumEffectStateTest < Test::Unit::TestCase
       nstate.move(moves.first)  # alias
     end
   end
+
+  def test_inCheck
+    nstate = Osl::State::NumEffectState.new
+    assert_false(nstate.inCheck)
+    assert_false(nstate.in_check?)  # alias
+  end
 end

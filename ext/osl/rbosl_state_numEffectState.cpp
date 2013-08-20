@@ -65,6 +65,18 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
   return Qnil;
 }
 
+static VALUE
+rbosl_numEffectState_inCheck(VALUE self)
+{
+  state::NumEffectState* p;
+  Data_Get_Struct(self, state::NumEffectState, p);
+
+  if (p->inCheck(alt(p->turn()))) {
+    return Qtrue;
+  } else {
+    return Qfalse;
+  }
+}
 
 #ifdef __cplusplus
 extern "C" {
@@ -79,6 +91,8 @@ rbosl_numEffectState_init(VALUE mState)
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);
   rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rbosl_numEffectState_makeMove), 1);
   rb_define_alias(cNumEffectState,  "move", "makeMove");
+  rb_define_method(cNumEffectState, "inCheck", RUBY_METHOD_FUNC(rbosl_numEffectState_inCheck), 0);
+  rb_define_alias(cNumEffectState,  "in_check?", "inCheck");
 }
 #ifdef __cplusplus
 } /* extern "C" */
