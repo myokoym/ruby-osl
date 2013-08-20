@@ -6,8 +6,6 @@
 
 extern  VALUE cMove;
 
-using namespace osl;
-
 #ifdef __cplusplus
 extern "C" {
 #endif
