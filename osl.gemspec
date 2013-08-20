@@ -19,6 +19,9 @@ Gem::Specification.new do |spec|
   spec.extensions    = ["ext/osl/extconf.rb"]
   spec.require_paths = ["lib", "ext/osl"]
 
+  spec.add_development_dependency("test-unit")
+  spec.add_development_dependency("test-unit-notify")
+  spec.add_development_dependency("test-unit-rr")
   spec.add_development_dependency("bundler", "~> 1.3")
   spec.add_development_dependency("rake")
 end
