@@ -8,6 +8,6 @@ extern  VALUE cMove;
 
 using namespace osl;
 
-void Init_move(void);
+void Init_move(VALUE mOsl);
 
 #endif /* RBOSL_MOVE_H */
