@@ -13,6 +13,9 @@
 *.la
 *.a
 
+## extconf.rb
+mkmf.log
+
 ## Make
 Makefile
 
