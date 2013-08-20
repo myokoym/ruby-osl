@@ -1,6 +1,6 @@
 #include "ruby.h"
 #include "rbosl_state.hpp"
-#include "rbosl_move.hpp"
+#include "rbosl_move.h"
 
 #ifdef __cplusplus
 extern "C" {
