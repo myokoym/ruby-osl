@@ -1,5 +1,5 @@
 #include "ruby.h"
-#include "rbosl_state.hpp"
+#include "rbosl_state.h"
 #include "rbosl_move.h"
 
 #ifdef __cplusplus

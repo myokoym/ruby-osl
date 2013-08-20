@@ -1,6 +1,4 @@
-#include "ruby.h"
-#include "rbosl_state_simpleState.hpp"
-#include "rbosl_state_numEffectState.hpp"
+#include "rbosl_state.h"
 
 #ifdef __cplusplus
 extern "C" {

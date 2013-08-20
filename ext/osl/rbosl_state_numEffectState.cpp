@@ -1,4 +1,5 @@
 #include "ruby.h"
+#include "rbosl_state.h"
 #include "rbosl_move.h"
 #include <osl/state/numEffectState.h>
 #include <osl/handicap.h>

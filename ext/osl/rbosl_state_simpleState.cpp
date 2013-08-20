@@ -1,4 +1,5 @@
 #include "ruby.h"
+#include "rbosl_state.h"
 #include <osl/state/simpleState.h>
 #include <osl/handicap.h>
 #include <iostream>
