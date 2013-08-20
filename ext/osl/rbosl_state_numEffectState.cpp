@@ -78,6 +78,7 @@ rbosl_numEffectState_init(VALUE mState)
   rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rbosl_numEffectState_show), 0);
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);
   rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rbosl_numEffectState_makeMove), 1);
+  rb_define_alias(cNumEffectState,  "move", "makeMove");
 }
 #ifdef __cplusplus
 } /* extern "C" */
