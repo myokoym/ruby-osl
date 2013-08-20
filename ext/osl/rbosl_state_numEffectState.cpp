@@ -10,23 +10,23 @@
 using namespace osl;
 
 void
-rb_numEffectState_free(state::NumEffectState* ptr)
+rbosl_numEffectState_free(state::NumEffectState* ptr)
 {
   ptr->~NumEffectState();
   ruby_xfree(ptr);
 }
 
 static VALUE
-rb_numEffectState_s_new(VALUE self)
+rbosl_numEffectState_s_new(VALUE self)
 {
   state::NumEffectState* ptr = new state::NumEffectState(state::SimpleState(HIRATE));
   // TODO: support GC
-  //return Data_Wrap_Struct(self, NULL, rb_numEffectState_free, ptr);
+  //return Data_Wrap_Struct(self, NULL, rbosl_numEffectState_free, ptr);
   return Data_Wrap_Struct(self, NULL, NULL, ptr);
 }
 
 static VALUE
-rb_numEffectState_show(VALUE self)
+rbosl_numEffectState_show(VALUE self)
 {
   state::NumEffectState* p;
   Data_Get_Struct(self, state::NumEffectState, p);
@@ -35,7 +35,7 @@ rb_numEffectState_show(VALUE self)
 }
 
 static VALUE
-rb_numEffectState_generate(VALUE self)
+rbosl_numEffectState_generate(VALUE self)
 {
   state::NumEffectState* p;
   Data_Get_Struct(self, state::NumEffectState, p);
@@ -44,7 +44,7 @@ rb_numEffectState_generate(VALUE self)
   VALUE moves_ary = rb_ary_new();
   for (int i = 0; i < (int)moves.size(); i++) {
     // TODO: ruby: munmap_chunk(): invalid pointer
-    //VALUE move = Data_Wrap_Struct(cMove, NULL, rb_move_free, &moves[i]);
+    //VALUE move = Data_Wrap_Struct(cMove, NULL, rbosl_move_free, &moves[i]);
     VALUE move = Data_Wrap_Struct(cMove, NULL, NULL, &moves[i]);
     rb_ary_push(moves_ary, move);
   }
@@ -52,7 +52,7 @@ rb_numEffectState_generate(VALUE self)
 }
 
 static VALUE
-rb_numEffectState_makeMove(VALUE self, VALUE rb_move)
+rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
 {
   state::NumEffectState* p;
   Data_Get_Struct(self, state::NumEffectState, p);
@@ -74,10 +74,10 @@ Init_numEffectState(VALUE mState)
 {
   VALUE cNumEffectState;
   cNumEffectState = rb_define_class_under(mState, "NumEffectState", rb_cObject);
-  rb_define_singleton_method(cNumEffectState, "new", RUBY_METHOD_FUNC(rb_numEffectState_s_new), 0);
-  rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rb_numEffectState_show), 0);
-  rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rb_numEffectState_generate), 0);
-  rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rb_numEffectState_makeMove), 1);
+  rb_define_singleton_method(cNumEffectState, "new", RUBY_METHOD_FUNC(rbosl_numEffectState_s_new), 0);
+  rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rbosl_numEffectState_show), 0);
+  rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);
+  rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rbosl_numEffectState_makeMove), 1);
 }
 #ifdef __cplusplus
 } /* extern "C" */
