@@ -30,6 +30,18 @@ Or install it yourself as:
 
 See samples.
 
+## Development
+
+### Prepare
+
+    bundle install
+
+### Testing
+
+    test/run-test.rb
+
+So, you can meet kinotan. :)
+
 ## Contributing
 
 1. Fork it
