@@ -72,6 +72,31 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
 }
 
 static VALUE
+rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
+{
+  state::NumEffectState* p;
+  Data_Get_Struct(self, state::NumEffectState, p);
+
+  Move* c_move;
+  if (TYPE(rb_move) == T_STRING) {
+    // TODO: format check
+    if (strlen(StringValuePtr(rb_move)) == 0) {
+      return Qfalse;
+    }
+    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
+    c_move = &osl_move;
+  } else {
+    Data_Get_Struct(rb_move, Move, c_move);
+  }
+
+  if (p->isValidMove(*c_move)) {
+    return Qtrue;
+  } else {
+    return Qfalse;
+  }
+}
+
+static VALUE
 rbosl_numEffectState_inCheck(VALUE self)
 {
   state::NumEffectState* p;
@@ -99,6 +124,8 @@ rbosl_numEffectState_init(VALUE mState)
   rb_define_alias(cNumEffectState,  "move", "makeMove");
   rb_define_method(cNumEffectState, "inCheck", RUBY_METHOD_FUNC(rbosl_numEffectState_inCheck), 0);
   rb_define_alias(cNumEffectState,  "in_check?", "inCheck");
+  rb_define_method(cNumEffectState, "isValidMove", RUBY_METHOD_FUNC(rbosl_numEffectState_isValidMove), 1);
+  rb_define_alias(cNumEffectState,  "valid?", "isValidMove");
 }
 #ifdef __cplusplus
 } /* extern "C" */

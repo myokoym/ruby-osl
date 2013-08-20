@@ -31,6 +31,22 @@ class NumEffectStateTest < Test::Unit::TestCase
     end
   end
 
+  def test_isValidMove
+    nstate = Osl::State::NumEffectState.new
+    moves = nstate.generate
+    assert_true(nstate.isValidMove(moves.first))
+    assert_true(nstate.valid?(moves.first))  # alias
+    assert_false(nstate.isValidMove(Osl::Move.new))
+  end
+
+  def test_isValidMove_from_csa
+    nstate = Osl::State::NumEffectState.new
+    assert_true(nstate.isValidMove("+7776FU"))
+    assert_true(nstate.valid?("+7776FU"))  # alias
+    assert_false(nstate.isValidMove("-7776FU"))
+    assert_false(nstate.isValidMove(""))
+  end
+
   def test_inCheck
     nstate = Osl::State::NumEffectState.new
     assert_false(nstate.inCheck)
