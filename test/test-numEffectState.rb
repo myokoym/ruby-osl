@@ -24,6 +24,13 @@ class NumEffectStateTest < Test::Unit::TestCase
     end
   end
 
+  def test_makeMove_from_csa
+    nstate = Osl::State::NumEffectState.new
+    assert_nothing_raised do
+      nstate.makeMove("+7776FU")
+    end
+  end
+
   def test_inCheck
     nstate = Osl::State::NumEffectState.new
     assert_false(nstate.inCheck)

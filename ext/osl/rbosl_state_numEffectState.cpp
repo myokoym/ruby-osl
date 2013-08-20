@@ -5,6 +5,7 @@
 #include <osl/handicap.h>
 #include <osl/container/moveVector.h>
 #include <osl/move_generator/legalMoves.h>
+#include <osl/record/csa.h>
 #include <iostream>
 
 using namespace osl;
@@ -58,7 +59,12 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
   Data_Get_Struct(self, state::NumEffectState, p);
 
   Move* c_move;
+  if (TYPE(rb_move) == T_STRING) {
+    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
+    c_move = &osl_move;
+  } else {
   Data_Get_Struct(rb_move, Move, c_move);
+  }
 
   p->makeMove(*c_move);
 
