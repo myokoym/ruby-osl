@@ -63,7 +63,7 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
     Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
     c_move = &osl_move;
   } else {
-  Data_Get_Struct(rb_move, Move, c_move);
+    Data_Get_Struct(rb_move, Move, c_move);
   }
 
   p->makeMove(*c_move);
