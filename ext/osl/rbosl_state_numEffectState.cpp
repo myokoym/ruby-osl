@@ -70,7 +70,7 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
 extern "C" {
 #endif
 void
-Init_numEffectState(VALUE mState)
+rbosl_numEffectState_init(VALUE mState)
 {
   VALUE cNumEffectState;
   cNumEffectState = rb_define_class_under(mState, "NumEffectState", rb_cObject);

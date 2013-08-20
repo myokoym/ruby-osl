@@ -4,12 +4,12 @@
 extern "C" {
 #endif
 void
-Init_state(VALUE mOsl)
+rbosl_state_init(VALUE mOsl)
 {
   static VALUE mState;
   mState = rb_define_module_under(mOsl, "State");
-  Init_simpleState(mState);
-  Init_numEffectState(mState);
+  rbosl_simpleState_init(mState);
+  rbosl_numEffectState_init(mState);
 }
 #ifdef __cplusplus
 } /* extern "C" */

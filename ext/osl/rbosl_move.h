@@ -8,7 +8,7 @@ extern  VALUE cMove;
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern void Init_move(VALUE mOsl);
+extern void rbosl_move_init(VALUE mOsl);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif

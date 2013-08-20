@@ -24,7 +24,7 @@ rbosl_move_s_new(VALUE self)
 extern "C" {
 #endif
 void
-Init_move(VALUE mOsl)
+rbosl_move_init(VALUE mOsl)
 {
   cMove = rb_define_class_under(mOsl, "Move", rb_cObject);
   rb_define_singleton_method(cMove, "new", RUBY_METHOD_FUNC(rbosl_move_s_new), 0);

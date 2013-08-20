@@ -33,7 +33,7 @@ rbosl_simpleState_show(VALUE self)
 extern "C" {
 #endif
 void
-Init_simpleState(VALUE mState)
+rbosl_simpleState_init(VALUE mState)
 {
   VALUE cSimpleState;
   cSimpleState = rb_define_class_under(mState, "SimpleState", rb_cObject);

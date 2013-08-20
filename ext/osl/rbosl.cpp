@@ -10,8 +10,8 @@ Init_osl(void)
 {
   static VALUE mOsl;
   mOsl = rb_define_module("Osl");
-  Init_state(mOsl);
-  Init_move(mOsl);
+  rbosl_state_init(mOsl);
+  rbosl_move_init(mOsl);
 }
 #ifdef __cplusplus
 } /* extern "C" */
