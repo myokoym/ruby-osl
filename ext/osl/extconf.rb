@@ -1,5 +1,5 @@
 require "mkmf"
 
-$LIBS += " -losl"
-
+if have_library("osl")
 create_makefile("osl/osl")
+end
