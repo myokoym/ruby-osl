@@ -6,6 +6,8 @@
 
 using namespace osl;
 
+VALUE cSimpleState;
+
 void
 rbosl_simpleState_free(state::SimpleState* ptr)
 {
@@ -35,7 +37,6 @@ extern "C" {
 void
 rbosl_simpleState_init(VALUE mState)
 {
-  VALUE cSimpleState;
   cSimpleState = rb_define_class_under(mState, "SimpleState", rb_cObject);
   rb_define_singleton_method(cSimpleState, "new", RUBY_METHOD_FUNC(rbosl_simpleState_s_new), 0);
   rb_define_method(cSimpleState, "show", RUBY_METHOD_FUNC(rbosl_simpleState_show), 0);

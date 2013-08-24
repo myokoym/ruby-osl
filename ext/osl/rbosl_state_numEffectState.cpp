@@ -121,7 +121,7 @@ void
 rbosl_numEffectState_init(VALUE mState)
 {
   VALUE cNumEffectState;
-  cNumEffectState = rb_define_class_under(mState, "NumEffectState", rb_cObject);
+  cNumEffectState = rb_define_class_under(mState, "NumEffectState", cSimpleState);
   rb_define_singleton_method(cNumEffectState, "new", RUBY_METHOD_FUNC(rbosl_numEffectState_s_new), 0);
   rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rbosl_numEffectState_show), 0);
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);

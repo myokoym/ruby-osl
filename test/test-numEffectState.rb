@@ -9,6 +9,10 @@ class NumEffectStateTest < Test::Unit::TestCase
     assert_not_nil(Osl::State::NumEffectState.new)
   end
 
+  def test_super_class
+    assert_true(@nstate.is_a?(Osl::State::SimpleState))
+  end
+
   def test_generate
     moves = @nstate.generate
     assert_not_nil(moves)

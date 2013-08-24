@@ -3,6 +3,8 @@
 
 #include "ruby.h"
 
+extern VALUE cSimpleState;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
