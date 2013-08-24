@@ -1,57 +1,55 @@
 require "osl"
 
 class NumEffectStateTest < Test::Unit::TestCase
+  def setup
+    @nstate  = Osl::State::NumEffectState.new
+  end
+
   def test_new
     assert_not_nil(Osl::State::NumEffectState.new)
   end
 
   def test_generate
-    nstate = Osl::State::NumEffectState.new
-    moves = nstate.generate
+    moves = @nstate.generate
     assert_not_nil(moves)
     assert_true(moves.is_a?(Array))
     assert_true(moves.first.is_a?(Osl::Move))
   end
 
   def test_makeMove
-    nstate = Osl::State::NumEffectState.new
-    moves = nstate.generate
+    moves = @nstate.generate
     assert_nothing_raised do
-      nstate.makeMove(moves.first)
+      @nstate.makeMove(moves.first)
     end
     assert_nothing_raised do
-      nstate.move(moves.first)  # alias
+      @nstate.move(moves.first)  # alias
     end
   end
 
   def test_makeMove_from_csa
-    nstate = Osl::State::NumEffectState.new
     assert_nothing_raised do
-      nstate.makeMove("+7776FU")
+      @nstate.makeMove("+7776FU")
     end
   end
 
   def test_isValidMove
-    nstate = Osl::State::NumEffectState.new
-    moves = nstate.generate
-    assert_true(nstate.isValidMove(moves.first))
-    assert_true(nstate.valid?(moves.first))  # alias
-    assert_false(nstate.isValidMove(Osl::Move.new))
+    moves = @nstate.generate
+    assert_true(@nstate.isValidMove(moves.first))
+    assert_true(@nstate.valid?(moves.first))  # alias
+    assert_false(@nstate.isValidMove(Osl::Move.new))
   end
 
   def test_isValidMove_from_csa
-    nstate = Osl::State::NumEffectState.new
-    assert_true(nstate.isValidMove("+7776FU"))
-    assert_true(nstate.valid?("+7776FU"))  # alias
-    assert_false(nstate.isValidMove("-7776FU"))
-    assert_nil(nstate.isValidMove(""))
-    assert_nil(nstate.isValidMove("7776FU"))
-    assert_nil(nstate.isValidMove("-7776"))
+    assert_true(@nstate.isValidMove("+7776FU"))
+    assert_true(@nstate.valid?("+7776FU"))  # alias
+    assert_false(@nstate.isValidMove("-7776FU"))
+    assert_nil(@nstate.isValidMove(""))
+    assert_nil(@nstate.isValidMove("7776FU"))
+    assert_nil(@nstate.isValidMove("-7776"))
   end
 
   def test_inCheck
-    nstate = Osl::State::NumEffectState.new
-    assert_false(nstate.inCheck)
-    assert_false(nstate.in_check?)  # alias
+    assert_false(@nstate.inCheck)
+    assert_false(@nstate.in_check?)  # alias
   end
 end
