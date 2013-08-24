@@ -63,7 +63,7 @@ rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
 
   Move* c_move;
   if (TYPE(rb_move) == T_STRING) {
-    // TODO: Rescue invalid piece. e.g) +7776XX
+    // TODO: Rescue invalid piece. e.g.) +7776XX
     // TODO: Support except for CSA format.
     VALUE format_checked = rb_funcall(rb_move,
                                       rb_intern("match"),
