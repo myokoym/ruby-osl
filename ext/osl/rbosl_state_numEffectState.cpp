@@ -79,8 +79,13 @@ rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
 
   Move* c_move;
   if (TYPE(rb_move) == T_STRING) {
-    // TODO: format check
-    if (strlen(StringValuePtr(rb_move)) == 0) {
+    // TODO: Rescue invalid piece. e.g) +7776XX
+    // TODO: Support except for CSA format.
+    VALUE format_checked = rb_funcall(rb_move,
+                                      rb_intern("match"),
+                                      1,
+                                      rb_str_new2("[+-][0-9]{4}[A-Z]{2}"));
+    if (format_checked == Qnil) {
       return Qnil;
     }
     Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);

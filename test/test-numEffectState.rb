@@ -45,6 +45,8 @@ class NumEffectStateTest < Test::Unit::TestCase
     assert_true(nstate.valid?("+7776FU"))  # alias
     assert_false(nstate.isValidMove("-7776FU"))
     assert_nil(nstate.isValidMove(""))
+    assert_nil(nstate.isValidMove("7776FU"))
+    assert_nil(nstate.isValidMove("-7776"))
   end
 
   def test_inCheck
