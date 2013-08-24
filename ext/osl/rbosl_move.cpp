@@ -1,7 +1,4 @@
-#include "ruby.h"
 #include "rbosl_move.h"
-#include <osl/move.h>
-#include <osl/record/csa.h>
 
 VALUE cMove;
 

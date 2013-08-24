@@ -2,6 +2,8 @@
 #define RBOSL_MOVE_H
 
 #include "ruby.h"
+#include <osl/move.h>
+#include <osl/record/csa.h>
 
 extern  VALUE cMove;
 

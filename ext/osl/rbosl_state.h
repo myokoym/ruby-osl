@@ -2,6 +2,13 @@
 #define RBOSL_STATE_H
 
 #include "ruby.h"
+#include <osl/state/simpleState.h>
+#include <osl/state/numEffectState.h>
+#include <osl/handicap.h>
+#include <osl/container/moveVector.h>
+#include <osl/move_generator/legalMoves.h>
+#include <osl/record/csa.h>
+#include <iostream>
 
 extern VALUE cSimpleState;
 

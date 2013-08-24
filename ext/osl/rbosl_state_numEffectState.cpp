@@ -1,12 +1,5 @@
-#include "ruby.h"
 #include "rbosl_state.h"
 #include "rbosl_move.h"
-#include <osl/state/numEffectState.h>
-#include <osl/handicap.h>
-#include <osl/container/moveVector.h>
-#include <osl/move_generator/legalMoves.h>
-#include <osl/record/csa.h>
-#include <iostream>
 
 using namespace osl;
 
