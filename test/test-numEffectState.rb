@@ -13,6 +13,10 @@ class NumEffectStateTest < Test::Unit::TestCase
     assert_true(@nstate.is_a?(Osl::State::SimpleState))
   end
 
+  def test_show
+    assert_true(@nstate.respond_to?(:show))
+  end
+
   def test_generate
     moves = @nstate.generate
     assert_not_nil(moves)

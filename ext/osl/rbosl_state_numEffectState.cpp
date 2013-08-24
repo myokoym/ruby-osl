@@ -27,15 +27,6 @@ rbosl_numEffectState_s_new(VALUE self)
 }
 
 static VALUE
-rbosl_numEffectState_show(VALUE self)
-{
-  state::NumEffectState* p;
-  Data_Get_Struct(self, state::NumEffectState, p);
-  std::cout << *p << std::endl;
-  return Qnil;
-}
-
-static VALUE
 rbosl_numEffectState_generate(VALUE self)
 {
   state::NumEffectState* p;
@@ -123,7 +114,6 @@ rbosl_numEffectState_init(VALUE mState)
   VALUE cNumEffectState;
   cNumEffectState = rb_define_class_under(mState, "NumEffectState", cSimpleState);
   rb_define_singleton_method(cNumEffectState, "new", RUBY_METHOD_FUNC(rbosl_numEffectState_s_new), 0);
-  rb_define_method(cNumEffectState, "show", RUBY_METHOD_FUNC(rbosl_numEffectState_show), 0);
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);
   rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rbosl_numEffectState_makeMove), 1);
   rb_define_alias(cNumEffectState,  "move", "makeMove");
