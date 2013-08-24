@@ -22,10 +22,10 @@ rbosl_numEffectState_s_new(VALUE self)
 static VALUE
 rbosl_numEffectState_generate(VALUE self)
 {
-  state::NumEffectState* p;
-  Data_Get_Struct(self, state::NumEffectState, p);
+  state::NumEffectState* ptr;
+  Data_Get_Struct(self, state::NumEffectState, ptr);
   MoveVector moves;
-  LegalMoves::generate(*p, moves);
+  LegalMoves::generate(*ptr, moves);
   VALUE moves_ary = rb_ary_new();
   for (int i = 0; i < (int)moves.size(); i++) {
     // TODO: ruby: munmap_chunk(): invalid pointer
@@ -39,18 +39,18 @@ rbosl_numEffectState_generate(VALUE self)
 static VALUE
 rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
 {
-  state::NumEffectState* p;
-  Data_Get_Struct(self, state::NumEffectState, p);
+  state::NumEffectState* ptr;
+  Data_Get_Struct(self, state::NumEffectState, ptr);
 
   Move* c_move;
   if (TYPE(rb_move) == T_STRING) {
-    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
+    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *ptr);
     c_move = &osl_move;
   } else {
     Data_Get_Struct(rb_move, Move, c_move);
   }
 
-  p->makeMove(*c_move);
+  ptr->makeMove(*c_move);
 
   return Qnil;
 }
@@ -58,8 +58,8 @@ rbosl_numEffectState_makeMove(VALUE self, VALUE rb_move)
 static VALUE
 rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
 {
-  state::NumEffectState* p;
-  Data_Get_Struct(self, state::NumEffectState, p);
+  state::NumEffectState* ptr;
+  Data_Get_Struct(self, state::NumEffectState, ptr);
 
   Move* c_move;
   if (TYPE(rb_move) == T_STRING) {
@@ -72,13 +72,13 @@ rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
     if (format_checked == Qnil) {
       return Qnil;
     }
-    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
+    Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *ptr);
     c_move = &osl_move;
   } else {
     Data_Get_Struct(rb_move, Move, c_move);
   }
 
-  if (p->isValidMove(*c_move)) {
+  if (ptr->isValidMove(*c_move)) {
     return Qtrue;
   } else {
     return Qfalse;
@@ -88,10 +88,10 @@ rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
 static VALUE
 rbosl_numEffectState_inCheck(VALUE self)
 {
-  state::NumEffectState* p;
-  Data_Get_Struct(self, state::NumEffectState, p);
+  state::NumEffectState* ptr;
+  Data_Get_Struct(self, state::NumEffectState, ptr);
 
-  if (p->inCheck(alt(p->turn()))) {
+  if (ptr->inCheck(alt(ptr->turn()))) {
     return Qtrue;
   } else {
     return Qfalse;
