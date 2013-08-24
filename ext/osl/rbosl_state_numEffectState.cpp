@@ -81,7 +81,7 @@ rbosl_numEffectState_isValidMove(VALUE self, VALUE rb_move)
   if (TYPE(rb_move) == T_STRING) {
     // TODO: format check
     if (strlen(StringValuePtr(rb_move)) == 0) {
-      return Qfalse;
+      return Qnil;
     }
     Move osl_move = record::csa::strToMove(StringValuePtr(rb_move), *p);
     c_move = &osl_move;
