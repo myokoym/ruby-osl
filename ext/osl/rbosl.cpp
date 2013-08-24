@@ -1,4 +1,5 @@
 #include "ruby.h"
+#include "rbosl_piece.h"
 #include "rbosl_state.h"
 #include "rbosl_move.h"
 
@@ -10,6 +11,7 @@ Init_osl(void)
 {
   static VALUE mOsl;
   mOsl = rb_define_module("Osl");
+  rbosl_piece_init(mOsl);
   rbosl_state_init(mOsl);
   rbosl_move_init(mOsl);
 }
