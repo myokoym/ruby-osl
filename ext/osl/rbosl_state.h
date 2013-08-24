@@ -6,9 +6,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern void rbosl_state_init(VALUE mOsl);
-extern void rbosl_simpleState_init(VALUE mState);
-extern void rbosl_numEffectState_init(VALUE mState);
+void rbosl_state_init(VALUE mOsl);
+void rbosl_simpleState_init(VALUE mState);
+void rbosl_numEffectState_init(VALUE mState);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
