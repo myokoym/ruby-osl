@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Masafumi Yokoyama"]
   spec.email         = ["myokoym@gmail.com"]
   spec.description   = %q{Ruby/OSL is a Ruby binding of OpenShogiLib.}
-  spec.summary       = %q{Ruby/OSL is a Ruby binding of OpenShogiLib.}
+  spec.summary       = %q{Ruby binding of OpenShogiLib}
   spec.homepage      = "https://github.com/myokoym/ruby-osl"
   spec.license       = "MIT"
 
