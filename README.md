@@ -1,4 +1,4 @@
-# Ruby/OSL
+# Ruby/OSL [![Build Status](https://secure.travis-ci.org/myokoym/ruby-osl.png?branch=master)](http://travis-ci.org/myokoym/ruby-osl)
 
 Ruby/OSL is a Ruby binding of OpenShogiLib.
 
