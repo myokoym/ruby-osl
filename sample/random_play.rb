@@ -26,7 +26,7 @@ loop do
   op_move = nil
   loop do
     line = gets.chomp
-    if state.valid?(line)
+    if state.valid_move?(line)
       op_move = line
       break
     end

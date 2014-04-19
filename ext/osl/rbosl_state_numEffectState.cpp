@@ -114,7 +114,7 @@ rbosl_numEffectState_init(VALUE mState)
   rb_define_method(cNumEffectState, "inCheck", RUBY_METHOD_FUNC(rbosl_numEffectState_inCheck), 0);
   rb_define_alias(cNumEffectState,  "in_check?", "inCheck");
   rb_define_method(cNumEffectState, "isValidMove", RUBY_METHOD_FUNC(rbosl_numEffectState_isValidMove), 1);
-  rb_define_alias(cNumEffectState,  "valid?", "isValidMove");
+  rb_define_alias(cNumEffectState,  "valid_move?", "isValidMove");
 }
 #ifdef __cplusplus
 } /* extern "C" */
