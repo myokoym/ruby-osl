@@ -32,9 +32,6 @@ class NumEffectStateTest < Test::Unit::TestCase
     assert_nothing_raised do
       @nstate.make_move(moves.first)  # alias
     end
-    assert_nothing_raised do
-      @nstate.move(moves.first)  # alias
-    end
   end
 
   def test_makeMove_from_csa

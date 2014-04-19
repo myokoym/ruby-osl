@@ -110,7 +110,6 @@ rbosl_numEffectState_init(VALUE mState)
   rb_define_method(cNumEffectState, "generate", RUBY_METHOD_FUNC(rbosl_numEffectState_generate), 0);
   rb_define_method(cNumEffectState, "makeMove", RUBY_METHOD_FUNC(rbosl_numEffectState_makeMove), 1);
   rb_define_alias(cNumEffectState,  "make_move", "makeMove");
-  rb_define_alias(cNumEffectState,  "move", "makeMove");
   rb_define_method(cNumEffectState, "inCheck", RUBY_METHOD_FUNC(rbosl_numEffectState_inCheck), 0);
   rb_define_alias(cNumEffectState,  "in_check?", "inCheck");
   rb_define_method(cNumEffectState, "isValidMove", RUBY_METHOD_FUNC(rbosl_numEffectState_isValidMove), 1);

@@ -12,7 +12,7 @@ loop do
     break
   end
   my_move = moves.sample
-  state.move(my_move)
+  state.make_move(my_move)
 
   state.show
   puts my_move.to_csa
@@ -33,7 +33,7 @@ loop do
     puts "Invalid move. Please retry."
   end
 
-  state.move(op_move)
+  state.make_move(op_move)
 
   state.show
   puts op_move
